@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTarea.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="14" CornerRadius="0">
+            <Label Text="Informacion de contacto" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+
+
+        <ScrollView>
+            <StackLayout Margin="10,10,10,10">
+                <Label Text="Nombre" FontSize="Title" Padding="30,10,30,10"/>
+                <Entry Placeholder="Nombre" x:Name="nombre"></Entry>
+                <Label Text="Apellidos" FontSize="Title" Padding="30,10,30,10"/>
+                <Entry Placeholder="Apellido" x:Name="apellido"></Entry>
+                <Label Text="Edad" FontSize="Title" Padding="30,10,30,10"/>
+                <Entry  Placeholder="0" x:Name="edad"></Entry>
+                <Label Text="Correo Electronico" FontSize="Title" Padding="30,10,30,10"/>
+                <Entry Placeholder="correo" Keyboard="Email" x:Name="correo"></Entry>
+                <Button Clicked="OnNextPageButtonClicked" x:Name="enviarInfo" Padding="10,10,10,10"  Text="Enviar Mensaje"></Button>
+
+            </StackLayout>
+
+        </ScrollView>
+       
+      
+
+    </StackLayout>
+
+</ContentPage>

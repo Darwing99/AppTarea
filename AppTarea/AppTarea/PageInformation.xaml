@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTarea.PageInformation">
+    <ContentPage.Content>
+        <StackLayout Padding="38,38,30,30">
+            <Label Padding="0,30" Text="{Binding Name}" FontSize="Title"
+              x:Name="nombre"/>
+            <Label Padding="0,30"  Text="{Binding Apellido}"
+                   FontSize="Title"
+               x:Name="apellidos" />
+            <Label Padding="0,30" Text="{Binding Edad}"
+                x:Name="edad"
+                   FontSize="Title"/>
+            <Label Padding="0,30" Text="{Binding correo}"
+               x:Name="correo"
+                   FontSize="Title"/>
+           
+            <Button Clicked="volverPage" Text="Volver">
+             
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
