@@ -59,7 +59,7 @@ namespace AppTarea
             
            
             Crud crud = new Crud();
-           // byte[] ImageData = File.ReadAllBytes(ImageSource.FromStream());
+           /*byte[] ImageData = File.ReadAllBytes(ImageSource.FromStream());
            
             var data = new Imagen
             {
@@ -78,7 +78,7 @@ namespace AppTarea
             catch (SQLiteException ex) {
 
                 Console.WriteLine(ex.ToString());
-            }
+            }*/
 
         }
        
