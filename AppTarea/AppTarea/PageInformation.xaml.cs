@@ -16,7 +16,7 @@ namespace AppTarea
         {
           
             InitializeComponent();
-            
+
             
         } 
         async void volverPage(object sender, EventArgs e)
