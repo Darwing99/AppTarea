@@ -15,6 +15,6 @@ namespace AppTarea.model
         public string Nombre { get; set; }
         public byte[] MiImagen { get; set; }
 
-       
+
     }
 }

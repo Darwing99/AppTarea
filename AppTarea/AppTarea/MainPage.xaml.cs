@@ -13,15 +13,15 @@ using System.Reflection.Metadata;
 using AppTarea.clases;
 using AppTarea.model;
 using System.IO;
-using System.Drawing;
-using Android.Graphics;
+
+
 
 namespace AppTarea
 {
     public partial class MainPage : ContentPage
     {
+        byte[] imageArray = null;
 
-           
         public MainPage()
         {
             InitializeComponent();
@@ -35,6 +35,8 @@ namespace AppTarea
             camera.Name = "img.jpg";
             camera.Directory = "MiApp";
             var foto = await CrossMedia.Current.TakePhotoAsync(camera);
+           
+          
             if (foto!=null) {
                 nombre.Text = camera.Name;
                 image.Source = ImageSource.FromStream(()=> {
@@ -44,6 +46,13 @@ namespace AppTarea
 
                     
                 });
+                using (MemoryStream memory = new MemoryStream())
+                {
+
+                    Stream stream = foto.GetStream();
+                    stream.CopyTo(memory);
+                    imageArray = memory.ToArray();
+                }
             }
             var compartirfoto = foto.Path;
             await Share.RequestAsync(new ShareFileRequest
@@ -51,34 +60,37 @@ namespace AppTarea
                 Title = "foto",
                 File = new ShareFile(compartirfoto)
             });
-           
+         
+
         }
 
-        private void guardar_Clicked(object sender, EventArgs e)
+
+
+        private async void guardar_Clicked(object sender, EventArgs e)
         {
             
-           
-            Crud crud = new Crud();
-           /*byte[] ImageData = File.ReadAllBytes(ImageSource.FromStream());
-           
             var data = new Imagen
             {
                 id = 0,
                 Nombre = nombre.Text,
-                MiImagen = ImageData
+                MiImagen = imageArray
 
             };
+           
+
             try
             {
                 Conexion co = new Conexion();
                 co.Conn().CreateTable<Imagen>();
                 co.Conn().Insert(data);
                 co.Conn().Close();
+                await DisplayAlert("Save Fille","Datos Guardados ","ok");
+                await Navigation.PushAsync(new PageInformation());
             }
             catch (SQLiteException ex) {
 
                 Console.WriteLine(ex.ToString());
-            }*/
+            }
 
         }
        

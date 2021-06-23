@@ -14,12 +14,12 @@ namespace AppTarea
 
 
 
-        public Task<List<Imagen>> getReadUbicacion()
+        public Task<List<Imagen>> getReadImage()
         {
             return conn.GetConnectionAsync().Table<Imagen>().ToListAsync();
         }
 
-        public Task<Imagen> getUbicacionId(int id)
+        public Task<Imagen> getImageId(int id)
         {
             return conn
                 .GetConnectionAsync()
@@ -28,19 +28,19 @@ namespace AppTarea
                 .FirstOrDefaultAsync();
         }
 
-        public Task<int> getUbicacionUpdateId(Imagen ubicacion)
+        public Task<int> getImageUpdateId(Imagen image)
         {
             return conn
                 .GetConnectionAsync()
-                .UpdateAsync(ubicacion);
+                .UpdateAsync(image);
 
         }
 
-        public Task<int> Delete(Imagen ubicacion)
+        public Task<int> Delete(Imagen image)
         {
             return conn
                 .GetConnectionAsync()
-                .DeleteAsync(ubicacion);
+                .DeleteAsync(image);
         }
     }
 }

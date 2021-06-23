@@ -8,26 +8,39 @@
     <ContentPage.Content>
    
     <StackLayout Padding="38,38,30,30">
-       
 
 
 
-            <SwipeView>
-                 <SwipeView.LeftItems>
-                <SwipeItems>
-                    <SwipeItem Text="Favorite"
-                       IconImageSource="favorite.png"
-                       BackgroundColor="LightGreen"
-                      />
-                        <SwipeItem Text="Delete"
-                       IconImageSource="delete.png"
-                       BackgroundColor="LightPink"
-                     />
-                    </SwipeItems>
-            </SwipeView.LeftItems>
 
-            </SwipeView>
-           
+
+            <ListView RefreshControlColor="Aquamarine" BackgroundColor="#D5E2FA" Visual="Material"  x:Name="lista" ItemSelected="lista_ItemSelected" >
+                <ListView.ItemTemplate>
+
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="10" Visual="Material">
+                                <Grid.RowDefinitions>
+
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+
+                                </Grid.ColumnDefinitions>
+                                <Label  Text="{Binding id}" FontFamily="ubuntu" FontSize="14" Grid.Row="0" Grid.Column="0"></Label>
+                                <Label  Text="{Binding Nombre}" FontFamily="ubuntu" FontSize="14" Grid.Row="0" Grid.Column="0"></Label>
+                                <Image Source="{Binding MiImagen}"  Grid.Row="0" Grid.Column="1"></Image>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

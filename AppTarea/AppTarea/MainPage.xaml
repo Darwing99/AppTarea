@@ -5,8 +5,6 @@
    
     <StackLayout Padding="20">
         
-       
-
         <Frame Visual="Material" Padding="10" CornerRadius="10" HasShadow="True">
             <StackLayout Margin="10,10,10,10">
                 <Label x:Name="nombre"></Label>
