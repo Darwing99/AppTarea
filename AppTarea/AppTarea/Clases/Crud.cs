@@ -2,6 +2,8 @@
 using AppTarea.model;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,11 +14,21 @@ namespace AppTarea
     {
         Conexion conn = new Conexion();
 
+        public Crud()
+        {
 
+        }
 
         public Task<List<Imagen>> getReadImage()
         {
-            return conn.GetConnectionAsync().Table<Imagen>().ToListAsync();
+           
+             var datos=conn.GetConnectionAsync().Table<Imagen>().ToListAsync();
+          
+         
+         //    var data = conn.Conn().Query<Imagen>("Select*from Imagen").FirstOrDefault();
+
+            return datos;
+        
         }
 
         public Task<Imagen> getImageId(int id)

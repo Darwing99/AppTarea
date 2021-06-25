@@ -1,46 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           
+             xmlns:local="clr-namespace:AppTarea"
              x:Class="AppTarea.PageInformation">
 
-
-
-    <ContentPage.Content>
    
-    <StackLayout Padding="38,38,30,30">
+
+    <ScrollView >
 
 
-
-
-
-            <ListView RefreshControlColor="Aquamarine" BackgroundColor="#D5E2FA" Visual="Material"  x:Name="lista" ItemSelected="lista_ItemSelected" >
+            <ListView   BackgroundColor="#D5E2FA" Visual="Material"  x:Name="listaItems">
                 <ListView.ItemTemplate>
-
                     <DataTemplate>
-                        <ViewCell>
-                            <Grid Margin="10" Visual="Material">
-                                <Grid.RowDefinitions>
+                        <ViewCell  Height="1600">
+                            <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Column="0" x:Name="img" 
+                                       Source="{Binding MiImagen, Converter={StaticResource bisc}}"
+                                  />
+                               
+                                    <Label Grid.Column="1" Text="{Binding Nombre} "  x:Name="name"
+                                       FontSize="23" TextColor="DarkOrange"
+                                       HorizontalOptions="FillAndExpand"/>
+                                  
 
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-
-                                </Grid.ColumnDefinitions>
-                                <Label  Text="{Binding id}" FontFamily="ubuntu" FontSize="14" Grid.Row="0" Grid.Column="0"></Label>
-                                <Label  Text="{Binding Nombre}" FontFamily="ubuntu" FontSize="14" Grid.Row="0" Grid.Column="0"></Label>
-                                <Image Source="{Binding MiImagen}"  Grid.Row="0" Grid.Column="1"></Image>
+                                  
+                              
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+           
 
-        </StackLayout>
-    </ContentPage.Content>
+        </ScrollView>
+   
 </ContentPage>

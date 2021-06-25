@@ -2,13 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppTarea.MainPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Ver lista" Clicked="ToolbarItem_Clicked">
+            
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
    
     <StackLayout Padding="20">
         
         <Frame Visual="Material" Padding="10" CornerRadius="10" HasShadow="True">
             <StackLayout Margin="10,10,10,10">
                 <Label x:Name="nombre"></Label>
-                <Image  HeightRequest="500" Visual="Material" x:Name="image"></Image>
+                <Image  HeightRequest="200" Visual="Material" x:Name="image"></Image>
                 <Button Visual="Material" BackgroundColor="ForestGreen"  x:Name="enviarInfo" Padding="10,10,10,10"  Text="Tomar Foto"></Button>
             </StackLayout>
 
