@@ -1,46 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-           
              xmlns:local="clr-namespace:AppTarea"
              x:Class="AppTarea.PageInformation">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Galeria"
+                 Order="Primary"
+                 Priority="1" />
+    </ContentPage.ToolbarItems>
 
+ 
+    <StackLayout >
    
+      
 
-    <ScrollView >
+        <ListView
+            x:Name="listaItems"
+            RowHeight="200"
+          
+            SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
 
 
-            <ListView   BackgroundColor="#D5E2FA" Visual="Material"  x:Name="listaItems">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell  Height="1600">
-                            <Grid >
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="100"/>
-                            </Grid.RowDefinitions>
-                            <Image Grid.Column="0" x:Name="img" 
-                                       Source="{Binding MiImagen, Converter={StaticResource bisc}}"
-                                  />
-                               
-                                    <Label Grid.Column="1" Text="{Binding Nombre} "  x:Name="name"
-                                       FontSize="23" TextColor="DarkOrange"
-                                       HorizontalOptions="FillAndExpand"/>
-                                  
-
-                                  
-                              
+                        <Frame Margin="5" HasShadow="True">
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image
+                                        Margin="0,0,0,0"
+                                        HeightRequest="200"
+                                        Source="{Binding MiImagen, Converter={StaticResource bisc}}"
+                                        WidthRequest="100" />
+                                    <Label
+                                        Margin="10,0,0,0"
+                                        FontAttributes="Bold"
+                                        FontSize="16"
+                                        HorizontalOptions="Start"
+                                        LineBreakMode="NoWrap"
+                                        MaxLines="1"
+                                        Text="{Binding Nombre}"
+                                        TextColor="Black"
+                                        VerticalOptions="Center" />
+                                </StackLayout>
                             </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-           
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
 
-        </ScrollView>
-   
 </ContentPage>

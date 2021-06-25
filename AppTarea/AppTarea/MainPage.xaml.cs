@@ -26,14 +26,18 @@ namespace AppTarea
         {
             InitializeComponent();
             enviarInfo.Clicked += EnviarInfo_Clicked;
+         
         }
 
+    
         private async void EnviarInfo_Clicked(object sender, EventArgs e)
         {
             var camera = new StoreCameraMediaOptions();
-            camera.PhotoSize = PhotoSize.Full;
-            camera.Name = "img.jpg";
+            camera.PhotoSize = PhotoSize.Medium;
+        
+            camera.Name = "Img";
             camera.Directory = "MiApp";
+            
             var foto = await CrossMedia.Current.TakePhotoAsync(camera);
            
           
@@ -98,6 +102,8 @@ namespace AppTarea
         {
             await Navigation.PushAsync(new PageInformation());
         }
+
+      
     }
    
 }

@@ -20,9 +20,13 @@
 
         </Frame>
         <Frame Padding="10" Visual="Material" CornerRadius="10" HasShadow="True">
-            <StackLayout Margin="10,10,10,10">
-                <Button Text="Guardar" x:Name="guardar" Clicked="guardar_Clicked" ></Button>
-            </StackLayout>
+            <Grid HorizontalOptions="CenterAndExpand">
+                <StackLayout Orientation="Horizontal" Margin="10,10,10,10">
+                <Button Grid.Row="0" Grid.Column="0" Text="Guardar" x:Name="guardar" Clicked="guardar_Clicked" ></Button>
+                
+              </StackLayout> 
+            </Grid>
+           
         </Frame>
             
       
