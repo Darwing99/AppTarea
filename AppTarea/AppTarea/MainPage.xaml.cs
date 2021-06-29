@@ -113,6 +113,7 @@ namespace AppTarea
                     Guardar.IsEnabled = false;
                     nombre.Text = "";
                     descripcion.Text = "";
+                    imageArray = null;
 
 
                 }
