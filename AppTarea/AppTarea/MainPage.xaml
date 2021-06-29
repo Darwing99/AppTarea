@@ -8,29 +8,33 @@
             
         </ToolbarItem>
     </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <StackLayout Padding="20">
+
+            <Frame Visual="Material" Padding="10" CornerRadius="10" HasShadow="True">
+                <StackLayout Margin="10,10,10,10">
+
+                    <Image  HeightRequest="200" Visual="Material" x:Name="image"></Image>
+                    <Entry IsEnabled="False" Visual="Material" Margin="10" x:Name="nombre" Placeholder="Nombre"></Entry>
+                    <Editor IsEnabled="False" Visual="Material" Margin="10" x:Name="descripcion" Placeholder="Descripcion"></Editor>
+                </StackLayout>
+
+            </Frame>
+            <Frame Padding="10" Visual="Material" CornerRadius="10" HasShadow="True">
+                <Grid HorizontalOptions="CenterAndExpand">
+                    <StackLayout Orientation="Horizontal" Margin="10,10,10,10">
+                        <Button Visual="Material" BackgroundColor="ForestGreen"  x:Name="enviarInfo" Padding="10,10,10,10"  Text="Tomar Foto"></Button>
+                        <Button Grid.Row="0" Grid.Column="0" Text="Guardar en sqlite" x:Name="Guardar" IsEnabled="False" Clicked="guardar_Clicked" ></Button>
+                    </StackLayout>
+                </Grid>
+
+            </Frame>
+
+
+
+        </StackLayout>
+    </ScrollView>
    
-    <StackLayout Padding="20">
-        
-        <Frame Visual="Material" Padding="10" CornerRadius="10" HasShadow="True">
-            <StackLayout Margin="10,10,10,10">
-                <Label x:Name="nombre"></Label>
-                <Image  HeightRequest="200" Visual="Material" x:Name="image"></Image>
-                <Button Visual="Material" BackgroundColor="ForestGreen"  x:Name="enviarInfo" Padding="10,10,10,10"  Text="Tomar Foto"></Button>
-            </StackLayout>
-
-        </Frame>
-        <Frame Padding="10" Visual="Material" CornerRadius="10" HasShadow="True">
-            <Grid HorizontalOptions="CenterAndExpand">
-                <StackLayout Orientation="Horizontal" Margin="10,10,10,10">
-                <Button Grid.Row="0" Grid.Column="0" Text="Guardar" x:Name="guardar" Clicked="guardar_Clicked" ></Button>
-                
-              </StackLayout> 
-            </Grid>
-           
-        </Frame>
-            
-      
-
-    </StackLayout>
 
 </ContentPage>

@@ -34,8 +34,7 @@ namespace AppTarea
         {
             var camera = new StoreCameraMediaOptions();
             camera.PhotoSize = PhotoSize.Medium;
-        
-            camera.Name = "Img";
+            camera.Name = "img";
             camera.Directory = "MiApp";
             
             var foto = await CrossMedia.Current.TakePhotoAsync(camera);
@@ -64,7 +63,9 @@ namespace AppTarea
                 Title = "foto",
                 File = new ShareFile(compartirfoto)
             });
-         
+            nombre.IsEnabled = true;
+            descripcion.IsEnabled = true;
+            Guardar.IsEnabled = true;
 
         }
 
@@ -73,10 +74,27 @@ namespace AppTarea
         private async void guardar_Clicked(object sender, EventArgs e)
         {
             
+            if (nombre.Text.Length==0)
+            {
+                await DisplayAlert("Alerta", "Complete los datos", "ok");
+                return;
+            }
+            if (descripcion.Text.Length==0)
+            {
+                await DisplayAlert("Alerta", "Complete los datos", "ok");
+                return;
+            }
+            if (image.Source.IsEmpty) {
+                await DisplayAlert("Alerta", "No ha tomado fotografias", "ok");
+                return;
+
+            }
+
             var data = new Imagen
             {
                 id = 0,
                 Nombre = nombre.Text,
+                descripcion = descripcion.Text,
                 MiImagen = imageArray
 
             };
@@ -89,7 +107,13 @@ namespace AppTarea
                 co.Conn().Insert(data);
                 co.Conn().Close();
                 await DisplayAlert("Save Fille","Datos Guardados ","ok");
-                await Navigation.PushAsync(new PageInformation());
+                nombre.IsEnabled = false;
+                descripcion.IsEnabled = false;
+                Guardar.IsEnabled = false;
+                nombre.Text = "";
+                descripcion.Text = "";
+                
+
             }
             catch (SQLiteException ex) {
 

@@ -16,7 +16,7 @@ namespace AppTarea.model
         public int id { get; set; }
         [MaxLength(200)]
         public string Nombre { get; set; }
-
+        public string descripcion { get; set; }
         public byte[] MiImagen { get; set; }
 
 
