@@ -3,10 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppTarea.ImagenVista">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding nombre}"></Label>
-            <Image Source="{Binding image, Converter={StaticResource bisc}}" VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+      
+          
+                          <StackLayout Margin="10">
+                            <Label IsVisible="False" x:Name="id" Text="{Binding idimage}"></Label>
+                            <Image x:Name="image" Source="{Binding image, Converter={StaticResource bisc}}" VerticalOptions="CenterAndExpand" 
+                                HorizontalOptions="CenterAndExpand" />
+                            <Button
+                                Visual="Material"
+                                x:Name="borrar"
+                                Clicked="borrar_Clicked"
+                                Text="Borrar Imagen">
+
+                            </Button>
+                        </StackLayout>
+                    
+          
+            
+      
+        
     </ContentPage.Content>
 </ContentPage>

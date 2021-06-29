@@ -33,7 +33,7 @@ namespace AppTarea
         private async void EnviarInfo_Clicked(object sender, EventArgs e)
         {
             var camera = new StoreCameraMediaOptions();
-            camera.PhotoSize = PhotoSize.Medium;
+            camera.PhotoSize = PhotoSize.Full;
             camera.Name = "img";
             camera.Directory = "MiApp";
             
@@ -84,41 +84,46 @@ namespace AppTarea
                 await DisplayAlert("Alerta", "Complete los datos", "ok");
                 return;
             }
-            if (image.Source.IsEmpty) {
+            if (imageArray==null) {
                 await DisplayAlert("Alerta", "No ha tomado fotografias", "ok");
                 return;
 
             }
-
-            var data = new Imagen
+            else
             {
-                id = 0,
-                Nombre = nombre.Text,
-                descripcion = descripcion.Text,
-                MiImagen = imageArray
+                var data = new Imagen
+                {
+                    id = 0,
+                    Nombre = nombre.Text,
+                    descripcion = descripcion.Text,
+                    MiImagen = imageArray
 
-            };
-           
+                };
 
-            try
-            {
-                Conexion co = new Conexion();
-                co.Conn().CreateTable<Imagen>();
-                co.Conn().Insert(data);
-                co.Conn().Close();
-                await DisplayAlert("Save Fille","Datos Guardados ","ok");
-                nombre.IsEnabled = false;
-                descripcion.IsEnabled = false;
-                Guardar.IsEnabled = false;
-                nombre.Text = "";
-                descripcion.Text = "";
-                
+
+                try
+                {
+                    Conexion co = new Conexion();
+                    co.Conn().CreateTable<Imagen>();
+                    co.Conn().Insert(data);
+                    co.Conn().Close();
+                    await DisplayAlert("Save Fille", "Datos Guardados ", "ok");
+                    nombre.IsEnabled = false;
+                    descripcion.IsEnabled = false;
+                    Guardar.IsEnabled = false;
+                    nombre.Text = "";
+                    descripcion.Text = "";
+
+
+                }
+                catch (SQLiteException ex)
+                {
+
+                    Console.WriteLine(ex.ToString());
+                }
 
             }
-            catch (SQLiteException ex) {
 
-                Console.WriteLine(ex.ToString());
-            }
 
         }
 

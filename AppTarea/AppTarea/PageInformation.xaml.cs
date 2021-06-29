@@ -51,6 +51,8 @@ namespace AppTarea
             return null;
 
         }
+
+        
             public async void mostrarDatos()
         {
             try
@@ -78,7 +80,12 @@ namespace AppTarea
 
 
         }
-      
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            mostrarDatos();
+        }
 
         private async void listaItems_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -93,7 +100,7 @@ namespace AppTarea
                 {
                     var getLista = new Lista
                     {
-                        id = (listaSeleccionada.id),
+                        idimage = (listaSeleccionada.id),
                         Nombre=(listaSeleccionada.Nombre),
                         image=(listaSeleccionada.MiImagen)
                        
