@@ -56,9 +56,6 @@ namespace AppTarea
             try
             {
 
-                //var data =  conn.Conn().Query<Imagen>("Select*from Imagen").FirstOrDefault();
-                //  MemoryStream ms = new MemoryStream(data.MiImagen);
-                // var img = ImageSource.FromStream(() => ms);
 
                 var imgLista = await crud.getReadImage();
 
@@ -82,8 +79,35 @@ namespace AppTarea
 
         }
       
-        private void lista_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+
+        private async void listaItems_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+
+            var ubicacion = new Imagen();
+
+            var obj = (Imagen)e.SelectedItem;
+            if (!string.IsNullOrEmpty(obj.id.ToString()))
+            {
+                var listaSeleccionada = await crud.getImageId((obj.id));
+                if (listaSeleccionada != null)
+                {
+                    var getLista = new Lista
+                    {
+                        id = (listaSeleccionada.id),
+                        Nombre=(listaSeleccionada.Nombre),
+                        image=(listaSeleccionada.MiImagen)
+                       
+                    };
+
+
+                    var datos = new ImagenVista();
+                    datos.BindingContext = getLista;
+                    await Navigation.PushAsync(datos);
+                   
+
+                }
+
+            }
 
         }
     }

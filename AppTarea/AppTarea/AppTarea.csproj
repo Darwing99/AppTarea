@@ -33,6 +33,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="ImagenVista.xaml.cs">
+      <DependentUpon>ImagenVista.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="ImagenVista.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="PageInformation.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

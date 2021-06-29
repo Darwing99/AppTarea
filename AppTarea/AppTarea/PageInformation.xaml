@@ -17,7 +17,7 @@
         <ListView
             x:Name="listaItems"
             RowHeight="200"
-          
+           ItemSelected="listaItems_ItemSelected"
             SeparatorVisibility="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -27,6 +27,7 @@
                         <Frame Margin="5" HasShadow="True">
                             <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                 <StackLayout Orientation="Horizontal">
+                                    <Label x:Name="id" IsVisible="false" Text="{Binding id}" ></Label>
                                     <Image
                                         Margin="0,0,0,0"
                                         HeightRequest="200"
